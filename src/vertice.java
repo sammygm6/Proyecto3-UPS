@@ -9,5 +9,27 @@
  * @author User
  */
 public class vertice {
+    private nodo nave;
 
+    public vertice() {
+    }
+
+    public vertice(nodo nave) {
+        this.nave = nave;
+    }
+
+    public nodo getNave() {
+        return nave;
+    }
+
+    public void setNave(nodo nave) {
+        this.nave = nave;
+    }
+
+    @Override
+    public String toString() {
+        return "vertice{" + "nave=" + nave.toString() + '}';
+    }
+    
+    
 }
