@@ -1,11 +1,23 @@
+
+import java.awt.Image;
+
 public class nodo {
     private String nombre;
-
+    private Image imagen;
+    
     public nodo() {
     }
 
     public nodo(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Image getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Image imagen) {
+        this.imagen = imagen;
     }
 
     public String getNombre() {

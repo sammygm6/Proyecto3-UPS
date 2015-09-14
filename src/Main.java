@@ -1,3 +1,6 @@
+
+import java.awt.Rectangle;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,31 +30,108 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jfc_CargarGalaxia = new javax.swing.JFileChooser();
+        jd_galaxia = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jpm_galaxia = new javax.swing.JPopupMenu();
+        CrearPlaneta = new javax.swing.JMenuItem();
+        CrearConexion = new javax.swing.JMenuItem();
+        Hola = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 435, Short.MAX_VALUE)
+        );
+
+        jButton2.setText("Salir");
+
+        javax.swing.GroupLayout jd_galaxiaLayout = new javax.swing.GroupLayout(jd_galaxia.getContentPane());
+        jd_galaxia.getContentPane().setLayout(jd_galaxiaLayout);
+        jd_galaxiaLayout.setHorizontalGroup(
+            jd_galaxiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_galaxiaLayout.createSequentialGroup()
+                .addContainerGap(663, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
+        );
+        jd_galaxiaLayout.setVerticalGroup(
+            jd_galaxiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_galaxiaLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
+        );
+
+        CrearPlaneta.setText("jMenuItem1");
+        jpm_galaxia.add(CrearPlaneta);
+
+        CrearConexion.setText("jMenuItem1");
+        jpm_galaxia.add(CrearConexion);
+
+        Hola.setText("jMenuItem1");
+        jpm_galaxia.add(Hola);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Cargar Galaxia");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(129, 129, 129)
                 .addComponent(jButton1)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(64, 64, 64)
                 .addComponent(jButton1)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        // codigo para creacion de planetas y aristas usando click 
+        if (evt.isMetaDown()) {
+            this.jpm_galaxia.setLocation(evt.getLocationOnScreen());
+            this.jpm_galaxia.pack();
+            this.jpm_galaxia.setVisible(true);
+        }
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        this.jd_galaxia.pack();
+        this.jd_galaxia.setModal(true);
+        this.jd_galaxia.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -89,7 +169,14 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CrearConexion;
+    private javax.swing.JMenuItem CrearPlaneta;
+    private javax.swing.JMenuItem Hola;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JDialog jd_galaxia;
     private javax.swing.JFileChooser jfc_CargarGalaxia;
+    private javax.swing.JPopupMenu jpm_galaxia;
     // End of variables declaration//GEN-END:variables
 }
