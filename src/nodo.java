@@ -12,6 +12,11 @@ public class nodo {
         this.nombre = nombre;
     }
 
+    public nodo(String nombre, Image imagen) {
+        this.nombre = nombre;
+        this.imagen = imagen;
+    }
+    
     public Image getImagen() {
         return imagen;
     }

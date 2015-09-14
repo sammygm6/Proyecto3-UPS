@@ -1,5 +1,8 @@
 
-import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,6 +21,26 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        BufferedImage imagen = null;
+        try {
+            File f = new File("src/planet-1.png");
+            imagen = ImageIO.read(f);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        BufferedImage imagen2 = null;
+        try {
+            File f = new File("src/planet-1.png");
+            imagen2 = ImageIO.read(f);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        nodo planeta1_1 = new nodo("Namek",imagen);
+        nodo planeta2_2 = new nodo("Kame",imagen2);
+        vertice planeta1 = new vertice(planeta1_1);
+        vertice planeta2 = new vertice(planeta2_2);
+        arista planeta1_2 = new arista(122,planeta1,planeta2);
+        
     }
 
     /**
@@ -78,10 +101,15 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        CrearPlaneta.setText("jMenuItem1");
+        CrearPlaneta.setText("Crear Planeta");
+        CrearPlaneta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearPlanetaMouseClicked(evt);
+            }
+        });
         jpm_galaxia.add(CrearPlaneta);
 
-        CrearConexion.setText("jMenuItem1");
+        CrearConexion.setText("Crear Conección");
         jpm_galaxia.add(CrearConexion);
 
         Hola.setText("jMenuItem1");
@@ -122,6 +150,7 @@ public class Main extends javax.swing.JFrame {
         if (evt.isMetaDown()) {
             this.jpm_galaxia.setLocation(evt.getLocationOnScreen());
             this.jpm_galaxia.pack();
+            this.jd_galaxia.setModal(false);
             this.jpm_galaxia.setVisible(true);
         }
     }//GEN-LAST:event_jPanel1MouseClicked
@@ -132,6 +161,10 @@ public class Main extends javax.swing.JFrame {
         this.jd_galaxia.setModal(true);
         this.jd_galaxia.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void CrearPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearPlanetaMouseClicked
+        // codigo para crear un planeta o cargarlo en el panel
+    }//GEN-LAST:event_CrearPlanetaMouseClicked
 
     /**
      * @param args the command line arguments
