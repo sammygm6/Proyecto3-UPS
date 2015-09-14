@@ -1,13 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.ArrayList;
 
-/**
- *
- * @author User
- */
 public class Grafo {
+    private ArrayList aristas;
 
+    public Grafo() {
+    }
+
+    public ArrayList getAristas() {
+        return aristas;
+    }
+
+    public void setAristas(ArrayList aristas) {
+        this.aristas = aristas;
+    }
+    
+    public void addArista(arista arista){
+        aristas.add(arista);
+    }
+    
+    /////camino mas corto Dijkstra
+    
 }
