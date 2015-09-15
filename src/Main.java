@@ -18,6 +18,16 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
 
+    public void generarGalaxia(ArrayList LecturaArchivo) {
+        for (int i = 0; i < LecturaArchivo.size(); i++) {
+            String[] ARISTA = LecturaArchivo.get(i).toString().split(";");
+            vertice vertice1 = new vertice(ARISTA[0]);
+            vertice vertice2 = new vertice(ARISTA[2]);
+            arista arista_nueva = new arista(Integer.parseInt(ARISTA[1]),vertice1,vertice2);
+            galaxia.addArista(arista_nueva);
+        }
+    }
+
     /**
      * Creates new form Main
      */
@@ -209,7 +219,8 @@ public class Main extends javax.swing.JFrame {
             File abre = file.getSelectedFile();
 
             /**
-             * recorremos el archivo, lo leemos para plasmarlo en el area de texto
+             * recorremos el archivo, lo leemos para plasmarlo en el area de
+             * texto
              */
             if (abre != null) {
                 FileReader archivo = new FileReader(abre);
@@ -228,6 +239,8 @@ public class Main extends javax.swing.JFrame {
         for (int i = 0; i < texto.size(); i++) {
             System.out.println(texto.get(i).toString());
         }
+        System.out.println("*****************************************************");
+        generarGalaxia(texto);
         /*this.jd_galaxia.pack();
          this.jd_galaxia.setModal(true);
          this.jd_galaxia.setVisible(true);
@@ -237,10 +250,6 @@ public class Main extends javax.swing.JFrame {
     private void CrearPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearPlanetaMouseClicked
         // codigo para crear un planeta o cargarlo en el panel
         this.jpm_galaxia.setVisible(false);
-        String[] NombresVertices = galaxia.getNombres();
-        for (int i = 0; i < NombresVertices.length; i++) {
-            this.cb_planetas_existentes.addItem(NombresVertices[i]);
-        }
         this.jd_crear_planeta.pack();
         this.jd_crear_planeta.setModal(true);
         this.jd_crear_planeta.setVisible(true);
@@ -257,7 +266,7 @@ public class Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

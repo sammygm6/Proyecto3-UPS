@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Grafo {
-    private ArrayList aristas;
-    private ArrayList Nombres;
+    private ArrayList<arista> aristas = new ArrayList();
+    private ArrayList Nombres = new ArrayList();
 
     public Grafo() {
     }
@@ -25,10 +25,10 @@ public class Grafo {
         }
     }
     
-    public void addArista(arista arista){
-        aristas.add(arista);
-        String NombreIzquierdo = arista.getAnterior().getNombre();
-        String NombreDerecho = arista.getSiguiente().getNombre();
+    public void addArista(arista viene_arista){
+        //this.aristas.add(viene_arista);
+        String NombreIzquierdo = viene_arista.getAnterior().getNombre();
+        String NombreDerecho = viene_arista.getSiguiente().getNombre();
         if (!NombreRepetido(Nombres,NombreIzquierdo)) {
             Nombres.add(NombreIzquierdo);
         }
@@ -48,12 +48,8 @@ public class Grafo {
         return false;
     }
     
-    public String[] getNombres(){
-        String[] nombres = null;
-        for (int i = 0; i < Nombres.size(); i++) {
-            nombres[i] = Nombres.get(i).toString();
-        }
-        return nombres;
+    public ArrayList getNombres(){
+        return Nombres;
     }
     /////camino mas corto Dijkstra
 }
