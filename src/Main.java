@@ -21,6 +21,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
     }
     /*
      * This method is called from within the constructor to initialize the form.
@@ -41,11 +42,11 @@ public class Main extends javax.swing.JFrame {
         Hola = new javax.swing.JMenuItem();
         jd_crear_planeta = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tf_nuevo_planeta = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cb_planetas_existentes = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        sp_peso_nuevo_planeta = new javax.swing.JSpinner();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -108,7 +109,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel3.setText("Años luz que tomaria llegar: ");
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        sp_peso_nuevo_planeta.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jButton3.setText("Crear");
 
@@ -119,17 +120,17 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jd_crear_planetaLayout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tf_nuevo_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jd_crear_planetaLayout.createSequentialGroup()
                 .addGroup(jd_crear_planetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jd_crear_planetaLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sp_peso_nuevo_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jd_crear_planetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_planetas_existentes, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3)))
         );
         jd_crear_planetaLayout.setVerticalGroup(
@@ -137,15 +138,15 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jd_crear_planetaLayout.createSequentialGroup()
                 .addGroup(jd_crear_planetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_nuevo_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(jd_crear_planetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_planetas_existentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(jd_crear_planetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sp_peso_nuevo_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3))
         );
@@ -200,6 +201,10 @@ public class Main extends javax.swing.JFrame {
     private void CrearPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearPlanetaMouseClicked
         // codigo para crear un planeta o cargarlo en el panel
         this.jpm_galaxia.setVisible(false);
+        String[] NombresVertices = galaxia.getNombres();
+        for (int i = 0; i < NombresVertices.length; i++) {
+            this.cb_planetas_existentes.addItem(NombresVertices[i]);
+        }
         this.jd_crear_planeta.pack();
         this.jd_crear_planeta.setModal(true);
         this.jd_crear_planeta.setVisible(true);
@@ -244,19 +249,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem CrearConexion;
     private javax.swing.JMenuItem CrearPlaneta;
     private javax.swing.JMenuItem Hola;
+    private javax.swing.JComboBox cb_planetas_existentes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JDialog jd_crear_planeta;
     private javax.swing.JDialog jd_galaxia;
     private javax.swing.JFileChooser jfc_CargarGalaxia;
     private javax.swing.JPopupMenu jpm_galaxia;
+    private javax.swing.JSpinner sp_peso_nuevo_planeta;
+    private javax.swing.JTextField tf_nuevo_planeta;
     // End of variables declaration//GEN-END:variables
+Grafo galaxia = new Grafo();
 }
