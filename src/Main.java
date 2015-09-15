@@ -235,11 +235,6 @@ public class Main extends javax.swing.JFrame {
                     + "\nNo se ha encontrado el archivo",
                     "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
         }
-        //El texto se almacena en el JTextArea
-        for (int i = 0; i < texto.size(); i++) {
-            System.out.println(texto.get(i).toString());
-        }
-        System.out.println("*****************************************************");
         generarGalaxia(texto);
         /*this.jd_galaxia.pack();
          this.jd_galaxia.setModal(true);
