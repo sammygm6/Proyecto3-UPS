@@ -14,8 +14,8 @@ public class Grafo {
     public void setAristas(ArrayList aristas) {
         this.aristas = aristas;
         for (int i = 0; i < aristas.size(); i++) {
-            String NombreIzquierdo = ((arista)aristas.get(i)).getAnterior().getNave().getNombre();
-            String NombreDerecho = ((arista)aristas.get(i)).getSiguiente().getNave().getNombre();
+            String NombreIzquierdo = ((arista)aristas.get(i)).getAnterior().getNombre();
+            String NombreDerecho = ((arista)aristas.get(i)).getSiguiente().getNombre();
             if (!NombreRepetido(Nombres,NombreIzquierdo)) {
                 Nombres.add(NombreIzquierdo);
             }
@@ -27,8 +27,8 @@ public class Grafo {
     
     public void addArista(arista arista){
         aristas.add(arista);
-        String NombreIzquierdo = arista.getAnterior().getNave().getNombre();
-        String NombreDerecho = arista.getSiguiente().getNave().getNombre();
+        String NombreIzquierdo = arista.getAnterior().getNombre();
+        String NombreDerecho = arista.getSiguiente().getNombre();
         if (!NombreRepetido(Nombres,NombreIzquierdo)) {
             Nombres.add(NombreIzquierdo);
         }

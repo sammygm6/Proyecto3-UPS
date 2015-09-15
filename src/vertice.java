@@ -9,26 +9,26 @@
  * @author User
  */
 public class vertice {
-    private nodo nave;
+    private String nombre;
 
     public vertice() {
     }
 
-    public vertice(nodo nave) {
-        this.nave = nave;
+    public vertice(String nombre) {
+        this.nombre = nombre;
     }
 
-    public nodo getNave() {
-        return nave;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNave(nodo nave) {
-        this.nave = nave;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @Override
     public String toString() {
-        return "vertice{" + "nave=" + nave.toString() + '}';
+        return nombre;
     }
     
     
