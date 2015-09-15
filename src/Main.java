@@ -21,6 +21,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
     }
     /*
      * This method is called from within the constructor to initialize the form.
@@ -200,8 +201,9 @@ public class Main extends javax.swing.JFrame {
     private void CrearPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearPlanetaMouseClicked
         // codigo para crear un planeta o cargarlo en el panel
         this.jpm_galaxia.setVisible(false);
-        for (int i = 0; i < galaxia.getSize(); i++) {
-            this.cb_planetas_existentes.addItem("");
+        String[] NombresVertices = galaxia.getNombres();
+        for (int i = 0; i < NombresVertices.length; i++) {
+            this.cb_planetas_existentes.addItem(NombresVertices[i]);
         }
         this.jd_crear_planeta.pack();
         this.jd_crear_planeta.setModal(true);

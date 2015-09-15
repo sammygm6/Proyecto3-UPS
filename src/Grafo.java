@@ -47,5 +47,13 @@ public class Grafo {
         }
         return false;
     }
+    
+    public String[] getNombres(){
+        String[] nombres = null;
+        for (int i = 0; i < Nombres.size(); i++) {
+            nombres[i] = Nombres.get(i).toString();
+        }
+        return nombres;
+    }
     /////camino mas corto Dijkstra
 }
