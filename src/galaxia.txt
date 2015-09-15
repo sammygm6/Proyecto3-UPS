@@ -1,0 +1,8 @@
+mercurio;33;venus
+venus;32;tierra
+tierra;22;marte
+marte;33jupiter
+jupite;44;saturno
+saturno;22;urano
+urano;34;neptuno
+neptuno;32;pluton
