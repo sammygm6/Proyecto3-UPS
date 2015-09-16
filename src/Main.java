@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
@@ -26,6 +27,46 @@ public class Main extends javax.swing.JFrame {
             vertice vertice2 = new vertice(ARISTA[2]);
             arista arista_nueva = new arista(Integer.parseInt(ARISTA[1]), vertice1, vertice2);
             galaxia.addArista(arista_nueva);
+        }
+    }
+    
+    public String getTextoParaArchivo(ArrayList<arista> aristas){
+        String Texto = "";
+        for (int i = 0; i < aristas.size()-1; i++) {
+            String nombre1 = aristas.get(i).getAnterior().getNombre();
+            String nombre2 = aristas.get(i).getSiguiente().getNombre();
+            String peso = Integer.toString(aristas.get(i).getPeso());
+            Texto += nombre1+";"+peso+";"+nombre2+"\n";
+        }
+        String nombre1 = aristas.get(aristas.size()-1).getAnterior().getNombre();
+        String nombre2 = aristas.get(aristas.size()-1).getSiguiente().getNombre();
+        String peso = Integer.toString(aristas.get(aristas.size()-1).getPeso());
+        Texto += nombre1+";"+peso+";"+nombre2;
+        return Texto;
+    }
+    
+    public void guardarArchivo(ArrayList<arista> aristas) {
+        String Texto = getTextoParaArchivo(aristas);
+        try {
+            String nombre = "";
+            JFileChooser file = new JFileChooser();
+            file.showSaveDialog(this);
+            File guarda = file.getSelectedFile();
+
+            if (guarda != null) {
+                /*guardamos el archivo y le damos el formato directamente,
+                 * si queremos que se guarde en formato doc lo definimos como .doc*/
+                FileWriter save = new FileWriter(guarda + ".txt");
+                save.write(Texto);
+                save.close();
+                JOptionPane.showMessageDialog(null,
+                        "El archivo se a guardado Exitosamente",
+                        "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,
+                    "Su archivo no se ha guardado",
+                    "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -65,6 +106,7 @@ public class Main extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jpm_galaxia = new javax.swing.JPopupMenu();
         CrearPlaneta = new javax.swing.JMenuItem();
         CrearConexion = new javax.swing.JMenuItem();
@@ -111,6 +153,11 @@ public class Main extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         jButton2.setText("Salir");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -161,7 +208,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(184, 184, 184)
                 .addComponent(jLabel15)
@@ -229,12 +276,21 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton13.setText("Guardar");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_galaxiaLayout = new javax.swing.GroupLayout(jd_galaxia.getContentPane());
         jd_galaxia.getContentPane().setLayout(jd_galaxiaLayout);
         jd_galaxiaLayout.setHorizontalGroup(
             jd_galaxiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_galaxiaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 169, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton9)
@@ -259,7 +315,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton5)
                     .addComponent(jButton7)
                     .addComponent(jButton9)
-                    .addComponent(jButton11)))
+                    .addComponent(jButton11)
+                    .addComponent(jButton13)))
         );
 
         CrearPlaneta.setText("Crear Planeta");
@@ -497,6 +554,11 @@ public class Main extends javax.swing.JFrame {
         jLabel26.setText("Planeta B:");
 
         jButton12.setText("WARP!!!");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_WARPLayout = new javax.swing.GroupLayout(jd_WARP.getContentPane());
         jd_WARP.getContentPane().setLayout(jd_WARPLayout);
@@ -504,16 +566,15 @@ public class Main extends javax.swing.JFrame {
             jd_WARPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_WARPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jd_WARPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton12)
-                    .addGroup(jd_WARPLayout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addGap(18, 18, 18)
-                        .addComponent(cb_WARP_1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel26)))
+                .addComponent(jLabel25)
+                .addGap(18, 18, 18)
+                .addComponent(cb_WARP_1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel26)
                 .addGap(18, 18, 18)
                 .addComponent(cb_WARP_2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton12)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_WARPLayout.setVerticalGroup(
@@ -524,10 +585,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel25)
                     .addComponent(cb_WARP_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26)
-                    .addComponent(cb_WARP_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(jButton12)
-                .addContainerGap())
+                    .addComponent(cb_WARP_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -613,12 +673,12 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // evento para crear un nuevo planeta
-        String nombre = JOptionPane.showInputDialog(this,"Ingrese Nombre del Planeta");
-        String peso = JOptionPane.showInputDialog(this,"Ingrese peso");
-        String nombre2 = JOptionPane.showInputDialog(this,"De cual planeta llegamos a este?");
+        String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Planeta");
+        String peso = JOptionPane.showInputDialog(this, "Ingrese peso");
+        String nombre2 = JOptionPane.showInputDialog(this, "De cual planeta llegamos a este?");
         vertice vertice1 = new vertice(nombre);
         vertice vertice2 = new vertice(nombre2);
-        arista arista_nueva = new arista(Integer.parseInt(peso),vertice1,vertice2);
+        arista arista_nueva = new arista(Integer.parseInt(peso), vertice1, vertice2);
         galaxia.addArista(arista_nueva);
     }//GEN-LAST:event_jButton4MouseClicked
 
@@ -644,7 +704,7 @@ public class Main extends javax.swing.JFrame {
         String nombre1_nuevo = this.cb_modificar_vertice1_nuevo.getSelectedItem().toString();
         String nombre2_nuevo = this.cb_modificar_vertice2_nuevo.getSelectedItem().toString();
         int peso = Integer.parseInt(this.sp_modificar_peso.getValue().toString());
-        if (galaxia.ModificarArista(nombre1,nombre2,nombre1_nuevo,nombre2_nuevo,peso)) {
+        if (galaxia.ModificarArista(nombre1, nombre2, nombre1_nuevo, nombre2_nuevo, peso)) {
             JOptionPane.showMessageDialog(this, "Exito modifico el nuevo camino");
             this.jd_modificar_arista.setVisible(false);
         }
@@ -690,7 +750,7 @@ public class Main extends javax.swing.JFrame {
         // Boton Generar en dialogo de dijkstra
         String nombre1 = this.cb_dijkstra_1.getSelectedItem().toString();
         String nombre2 = this.cb_dijkstra_2.getSelectedItem().toString();
-        
+
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -705,6 +765,33 @@ public class Main extends javax.swing.JFrame {
         this.jd_WARP.setLocationRelativeTo(this);
         this.jd_WARP.setVisible(true);
     }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // boton WARP desde dialogo WARP
+        if (this.WARP != 0) {
+            String nombre1 = this.cb_WARP_1.getSelectedItem().toString();
+            String nombre2 = this.cb_WARP_2.getSelectedItem().toString();
+            if (galaxia.WARP(nombre1, nombre2)) {
+                JOptionPane.showMessageDialog(this, "Logro Doblar el espacio!!");
+                WARP--;
+                this.jd_WARP.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Algun dato esta incorrecto, intente denuevo");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Solo se puede usar WARP 2 veces no se vago.");
+        }
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // evento guardar para guardar la resporteria
+        this.guardarArchivo(galaxia.getAristas());
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        this.jd_galaxia.setVisible(false);
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -760,6 +847,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -807,4 +895,5 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nuevo_planeta;
     // End of variables declaration//GEN-END:variables
 Grafo galaxia = new Grafo();
+    int WARP = 2;
 }

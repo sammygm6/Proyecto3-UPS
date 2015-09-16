@@ -84,6 +84,18 @@ public class Grafo {
         }
         return false;
     }
+    
+    public boolean WARP(String nombre1, String nombre2){
+        for (int i = 0; i < aristas.size(); i++) {
+            String NOMBRE1 = aristas.get(i).getAnterior().getNombre();
+            String NOMBRE2 = aristas.get(i).getSiguiente().getNombre();
+            if (nombre1.equals(NOMBRE1) && nombre2.equals(NOMBRE2)) {
+                aristas.get(i).setPeso(0);
+                return true;
+            }
+        }
+        return false;
+    }
     /////camino mas corto Dijkstra
     public void getDijkstra(String nombre1, String nombre2){
         vertice origen = new vertice(nombre1);
