@@ -1,4 +1,5 @@
 
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -23,7 +24,7 @@ public class Main extends javax.swing.JFrame {
             String[] ARISTA = LecturaArchivo.get(i).toString().split(";");
             vertice vertice1 = new vertice(ARISTA[0]);
             vertice vertice2 = new vertice(ARISTA[2]);
-            arista arista_nueva = new arista(Integer.parseInt(ARISTA[1]),vertice1,vertice2);
+            arista arista_nueva = new arista(Integer.parseInt(ARISTA[1]), vertice1, vertice2);
             galaxia.addArista(arista_nueva);
         }
     }
@@ -46,8 +47,23 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_galaxia = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jpm_galaxia = new javax.swing.JPopupMenu();
         CrearPlaneta = new javax.swing.JMenuItem();
         CrearConexion = new javax.swing.JMenuItem();
@@ -60,45 +76,173 @@ public class Main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         sp_peso_nuevo_planeta = new javax.swing.JSpinner();
         jButton3 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jd_modificar_arista = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        cb_modificar_vertice1 = new javax.swing.JComboBox();
+        jLabel17 = new javax.swing.JLabel();
+        cb_modificar_vertice2 = new javax.swing.JComboBox();
+        jLabel18 = new javax.swing.JLabel();
+        sp_modificar_peso = new javax.swing.JSpinner();
+        jButton6 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        cb_modificar_vertice1_nuevo = new javax.swing.JComboBox();
+        jLabel20 = new javax.swing.JLabel();
+        cb_modificar_vertice2_nuevo = new javax.swing.JComboBox();
+        jd_eliminar_arista = new javax.swing.JDialog();
+        jLabel21 = new javax.swing.JLabel();
+        cb_eliminar_vertice1 = new javax.swing.JComboBox();
+        cb_eliminar_vertice2 = new javax.swing.JComboBox();
+        jLabel22 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jd_dijkstra = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        cb_dijkstra_1 = new javax.swing.JComboBox();
+        jLabel24 = new javax.swing.JLabel();
+        cb_dijkstra_2 = new javax.swing.JComboBox();
+        jButton10 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
-            }
-        });
+        jButton2.setText("Salir");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-1.png"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-2.png"))); // NOI18N
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-11.png"))); // NOI18N
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-10.png"))); // NOI18N
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-13.png"))); // NOI18N
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-9.png"))); // NOI18N
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-8.png"))); // NOI18N
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-6.png"))); // NOI18N
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-4.png"))); // NOI18N
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-19.png"))); // NOI18N
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planet-20.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(151, 151, 151)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7)))
+                .addGap(160, 160, 160)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(184, 184, 184)
+                .addComponent(jLabel15)
+                .addGap(126, 126, 126))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel11))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
 
-        jButton2.setText("Salir");
+        jButton4.setText("Agregar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jButton5.setText("Modificar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        jButton7.setText("Eliminar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        jButton9.setText("Camino Mas Corto");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_galaxiaLayout = new javax.swing.GroupLayout(jd_galaxia.getContentPane());
         jd_galaxia.getContentPane().setLayout(jd_galaxiaLayout);
         jd_galaxiaLayout.setHorizontalGroup(
             jd_galaxiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_galaxiaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_galaxiaLayout.createSequentialGroup()
-                .addContainerGap(663, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
         );
         jd_galaxiaLayout.setVerticalGroup(
             jd_galaxiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_galaxiaLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(63, 63, 63)
+                .addGroup(jd_galaxiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5)
+                    .addComponent(jButton7)
+                    .addComponent(jButton9)))
         );
 
         CrearPlaneta.setText("Crear Planeta");
@@ -163,6 +307,169 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jButton3))
         );
 
+        jLabel10.setText("jLabel10");
+
+        jLabel16.setText("Planeta A:");
+
+        jLabel17.setText("Planeta B:");
+
+        jLabel18.setText("Peso:");
+
+        sp_modificar_peso.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        jButton6.setText("Modificar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        jLabel19.setText("Nuevo A:");
+
+        jLabel20.setText("Nuevo B:");
+
+        javax.swing.GroupLayout jd_modificar_aristaLayout = new javax.swing.GroupLayout(jd_modificar_arista.getContentPane());
+        jd_modificar_arista.getContentPane().setLayout(jd_modificar_aristaLayout);
+        jd_modificar_aristaLayout.setHorizontalGroup(
+            jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificar_aristaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_aristaLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sp_modificar_peso, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6))
+                    .addGroup(jd_modificar_aristaLayout.createSequentialGroup()
+                        .addGroup(jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_modificar_aristaLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_modificar_vertice1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_modificar_vertice2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificar_aristaLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_modificar_vertice1_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_modificar_vertice2_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(48, Short.MAX_VALUE))))
+        );
+        jd_modificar_aristaLayout.setVerticalGroup(
+            jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificar_aristaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(cb_modificar_vertice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(cb_modificar_vertice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGroup(jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(cb_modificar_vertice1_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(cb_modificar_vertice2_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76)
+                .addGroup(jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_aristaLayout.createSequentialGroup()
+                        .addGroup(jd_modificar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(sp_modificar_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
+        );
+
+        jLabel21.setText("Planeta A:");
+
+        jLabel22.setText("Planeta B:");
+
+        jButton8.setText("Eliminar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_eliminar_aristaLayout = new javax.swing.GroupLayout(jd_eliminar_arista.getContentPane());
+        jd_eliminar_arista.getContentPane().setLayout(jd_eliminar_aristaLayout);
+        jd_eliminar_aristaLayout.setHorizontalGroup(
+            jd_eliminar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminar_aristaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_eliminar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_eliminar_aristaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton8))
+                    .addGroup(jd_eliminar_aristaLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_eliminar_vertice1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_eliminar_vertice2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(48, Short.MAX_VALUE))))
+        );
+        jd_eliminar_aristaLayout.setVerticalGroup(
+            jd_eliminar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminar_aristaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_eliminar_aristaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(cb_eliminar_vertice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22)
+                    .addComponent(cb_eliminar_vertice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(jButton8))
+        );
+
+        jLabel23.setText("Planeta A:");
+
+        jLabel24.setText("Planeta B:");
+
+        jButton10.setText("Generar");
+
+        javax.swing.GroupLayout jd_dijkstraLayout = new javax.swing.GroupLayout(jd_dijkstra.getContentPane());
+        jd_dijkstra.getContentPane().setLayout(jd_dijkstraLayout);
+        jd_dijkstraLayout.setHorizontalGroup(
+            jd_dijkstraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_dijkstraLayout.createSequentialGroup()
+                .addGroup(jd_dijkstraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_dijkstraLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_dijkstra_1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel24)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_dijkstra_2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_dijkstraLayout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jButton10)))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        jd_dijkstraLayout.setVerticalGroup(
+            jd_dijkstraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_dijkstraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_dijkstraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(cb_dijkstra_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24)
+                    .addComponent(cb_dijkstra_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                .addComponent(jButton10)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Cargar Galaxia");
@@ -192,16 +499,6 @@ public class Main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        // codigo para creacion de planetas y aristas usando click 
-        if (evt.isMetaDown()) {
-            this.jpm_galaxia.setLocation(evt.getLocationOnScreen());
-            this.jpm_galaxia.pack();
-            this.jd_galaxia.setModal(false);
-            this.jpm_galaxia.setVisible(true);
-        }
-    }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
@@ -236,12 +533,16 @@ public class Main extends javax.swing.JFrame {
                     "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
         }
         generarGalaxia(texto);
-        /*this.jd_galaxia.pack();
-         this.jd_galaxia.setModal(true);
-         this.jd_galaxia.setVisible(true);
-         */
+        ArrayList NOMBRES = galaxia.getNombres();
+        Graphics g = this.jPanel1.getGraphics();
+        this.jLabel13.setVisible(false);
+        this.jLabel14.setVisible(false);
+        this.jLabel15.setVisible(false);
+        this.jd_galaxia.pack();
+        this.jd_galaxia.setLocationRelativeTo(this);
+        this.jd_galaxia.setModal(true);
+        this.jd_galaxia.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
-
     private void CrearPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearPlanetaMouseClicked
         // codigo para crear un planeta o cargarlo en el panel
         this.jpm_galaxia.setVisible(false);
@@ -249,6 +550,81 @@ public class Main extends javax.swing.JFrame {
         this.jd_crear_planeta.setModal(true);
         this.jd_crear_planeta.setVisible(true);
     }//GEN-LAST:event_CrearPlanetaMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // evento para crear un nuevo planeta
+        String nombre = JOptionPane.showInputDialog(this,"Ingrese Nombre del Planeta");
+        String peso = JOptionPane.showInputDialog(this,"Ingrese peso");
+        String nombre2 = JOptionPane.showInputDialog(this,"De cual planeta llegamos a este?");
+        vertice vertice1 = new vertice(nombre);
+        vertice vertice2 = new vertice(nombre2);
+        arista arista_nueva = new arista(Integer.parseInt(peso),vertice1,vertice2);
+        galaxia.addArista(arista_nueva);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // boton para ir al dialogo de modificar
+        ArrayList nombres = galaxia.getNombres();
+        for (int i = 0; i < nombres.size(); i++) {
+            this.cb_modificar_vertice1.addItem(nombres.get(i).toString());
+            this.cb_modificar_vertice2.addItem(nombres.get(i).toString());
+            this.cb_modificar_vertice1_nuevo.addItem(nombres.get(i).toString());
+            this.cb_modificar_vertice2_nuevo.addItem(nombres.get(i).toString());
+        }
+        this.jd_modificar_arista.pack();
+        this.jd_modificar_arista.setModal(true);
+        this.jd_modificar_arista.setLocationRelativeTo(this);
+        this.jd_modificar_arista.setVisible(true);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // boton modificar en el dialogo modificar
+        String nombre1 = this.cb_modificar_vertice1.getSelectedItem().toString();
+        String nombre2 = this.cb_modificar_vertice2.getSelectedItem().toString();
+        String nombre1_nuevo = this.cb_modificar_vertice1_nuevo.getSelectedItem().toString();
+        String nombre2_nuevo = this.cb_modificar_vertice2_nuevo.getSelectedItem().toString();
+        int peso = Integer.parseInt(this.sp_modificar_peso.getValue().toString());
+        if (galaxia.ModificarArista(nombre1,nombre2,nombre1_nuevo,nombre2_nuevo,peso)) {
+            JOptionPane.showMessageDialog(this, "Exito modifico el nuevo camino");
+            this.jd_modificar_arista.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // boton eliminar en dialogo eliminar arista
+        String nombre1 = this.cb_eliminar_vertice1.getSelectedItem().toString();
+        String nombre2 = this.cb_eliminar_vertice2.getSelectedItem().toString();
+        if (galaxia.EliminarArista(nombre1, nombre2)) {
+            JOptionPane.showMessageDialog(this, "Borro exitosamente");
+            this.jd_eliminar_arista.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // boton eliminar en dialogo de galaxia
+        ArrayList nombres = galaxia.getNombres();
+        for (int i = 0; i < nombres.size(); i++) {
+            this.cb_eliminar_vertice1.addItem(nombres.get(i).toString());
+            this.cb_eliminar_vertice2.addItem(nombres.get(i).toString());
+        }
+        this.jd_eliminar_arista.pack();
+        this.jd_eliminar_arista.setModal(true);
+        this.jd_eliminar_arista.setLocationRelativeTo(this);
+        this.jd_eliminar_arista.setVisible(true);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // boton camino mas corto en el dialogo de galaxia
+        ArrayList nombres = galaxia.getNombres();
+        for (int i = 0; i < nombres.size(); i++) {
+            this.cb_dijkstra_1.addItem(nombres.get(i).toString());
+            this.cb_dijkstra_2.addItem(nombres.get(i).toString());
+        }
+        this.jd_dijkstra.pack();
+        this.jd_dijkstra.setModal(true);
+        this.jd_dijkstra.setLocationRelativeTo(this);
+        this.jd_dijkstra.setVisible(true);
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -289,17 +665,57 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem CrearConexion;
     private javax.swing.JMenuItem CrearPlaneta;
     private javax.swing.JMenuItem Hola;
+    private javax.swing.JComboBox cb_dijkstra_1;
+    private javax.swing.JComboBox cb_dijkstra_2;
+    private javax.swing.JComboBox cb_eliminar_vertice1;
+    private javax.swing.JComboBox cb_eliminar_vertice2;
+    private javax.swing.JComboBox cb_modificar_vertice1;
+    private javax.swing.JComboBox cb_modificar_vertice1_nuevo;
+    private javax.swing.JComboBox cb_modificar_vertice2;
+    private javax.swing.JComboBox cb_modificar_vertice2_nuevo;
     private javax.swing.JComboBox cb_planetas_existentes;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JDialog jd_crear_planeta;
+    private javax.swing.JDialog jd_dijkstra;
+    private javax.swing.JDialog jd_eliminar_arista;
     private javax.swing.JDialog jd_galaxia;
+    private javax.swing.JDialog jd_modificar_arista;
     private javax.swing.JPopupMenu jpm_galaxia;
+    private javax.swing.JSpinner sp_modificar_peso;
     private javax.swing.JSpinner sp_peso_nuevo_planeta;
     private javax.swing.JTextField tf_nuevo_planeta;
     // End of variables declaration//GEN-END:variables
