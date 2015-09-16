@@ -106,9 +106,8 @@ public class Grafo {
         ArrayList adjacents = new ArrayList();
         ArrayList<arista> aristas_finales = new ArrayList();
         while (!(encontrado.getNombre().equals(nombre2))) {
-            System.out.println("entro");
             for (int i = 0; i < aristas.size(); i++) {
-                if (aristas.get(i).getAnterior().getNombre().equals(nombre1)) {
+                if (aristas.get(i).getAnterior().getNombre().equals(origen.getNombre())) {
                     adjacents = getAdjacents(aristas.get(i).getAnterior());
                 }
             }
@@ -125,7 +124,7 @@ public class Grafo {
                     if (((arista) adjacents.get(i)).getPeso() == costos) {
                         aristas_finales.add(((arista) adjacents.get(i)));
                         encontrado = ((arista) adjacents.get(i)).getSiguiente();
-                        System.out.println(encontrado.getNombre());
+                        origen.setNombre(((arista)adjacents.get(i)).getSiguiente().getNombre());
                     }
                 }
             }
