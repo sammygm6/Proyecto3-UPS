@@ -9,6 +9,7 @@
  * @author User
  */
 public class vertice {
+
     private String nombre;
     private boolean visitado;
 
@@ -35,11 +36,10 @@ public class vertice {
     public void setVisitado(boolean visitado) {
         this.visitado = visitado;
     }
-    
+
     @Override
     public String toString() {
         return nombre;
     }
-    
-    
+
 }

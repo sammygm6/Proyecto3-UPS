@@ -1,8 +1,0 @@
-mercurio;33;venus
-venus;32;tierra
-tierra;22;marte
-marte;33;jupiter
-jupiter;44;saturno
-saturno;22;urano
-urano;34;neptuno
-fuck;34;Marte

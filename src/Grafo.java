@@ -84,8 +84,8 @@ public class Grafo {
         }
         return false;
     }
-    
-    public boolean WARP(String nombre1, String nombre2){
+
+    public boolean WARP(String nombre1, String nombre2) {
         for (int i = 0; i < aristas.size(); i++) {
             String NOMBRE1 = aristas.get(i).getAnterior().getNombre();
             String NOMBRE2 = aristas.get(i).getSiguiente().getNombre();
@@ -96,10 +96,52 @@ public class Grafo {
         }
         return false;
     }
+
     /////camino mas corto Dijkstra
-    public void getDijkstra(String nombre1, String nombre2){
+
+    public ArrayList<arista> getDijkstra(String nombre1, String nombre2) {
         vertice origen = new vertice(nombre1);
         vertice destino = new vertice(nombre2);
-        
+        vertice encontrado = new vertice("");
+        ArrayList adjacents = new ArrayList();
+        ArrayList<arista> aristas_finales = new ArrayList();
+        while (!(encontrado.getNombre().equals(nombre2))) {
+            System.out.println("entro");
+            for (int i = 0; i < aristas.size(); i++) {
+                if (aristas.get(i).getAnterior().getNombre().equals(nombre1)) {
+                    adjacents = getAdjacents(aristas.get(i).getAnterior());
+                }
+            }
+            int costos = 10000;
+            for (int i = 0; i < adjacents.size(); i++) {
+                if (i % 2 == 0) {
+                    if (((int) adjacents.get(i)) < costos) {
+                        costos = ((int) adjacents.get(i));
+                    }
+                }
+            }
+            for (int i = 0; i < adjacents.size(); i++) {
+                if (i % 2 != 0) {
+                    if (((arista) adjacents.get(i)).getPeso() == costos) {
+                        aristas_finales.add(((arista) adjacents.get(i)));
+                        encontrado = ((arista) adjacents.get(i)).getSiguiente();
+                        System.out.println(encontrado.getNombre());
+                    }
+                }
+            }
+        }
+        return aristas_finales;
+    }
+
+    public ArrayList getAdjacents(vertice vertex) {
+        ArrayList adjacents = new ArrayList();//adjacents lleva como primer nodo el costo, luego la arista
+        for (int i = 0; i < aristas.size(); i++) {
+            if (aristas.get(i).getAnterior().getNombre().equals(vertex.getNombre())) {
+                arista salida = aristas.get(i);
+                adjacents.add(aristas.get(i).getPeso());
+                adjacents.add(salida);
+            }
+        }
+        return adjacents;
     }
 }

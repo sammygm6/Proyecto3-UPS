@@ -1,4 +1,6 @@
+
 public class arista {
+
     private int peso;
     private vertice anterior;
     private vertice siguiente;
@@ -40,6 +42,5 @@ public class arista {
     public String toString() {
         return Integer.toString(peso);
     }
-    
-    
+
 }

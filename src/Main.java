@@ -662,7 +662,7 @@ public class Main extends javax.swing.JFrame {
         generarGalaxia(texto);
         ArrayList NOMBRES = galaxia.getNombres();
         Graphics g = this.jPanel1.getGraphics();
-        g.drawLine(0, 0, 50, 50);
+//        g.drawLine(0, 0, 50, 50);
         System.out.println(this.jLabel8.getBounds().x);
         System.out.println(this.jLabel8.getLocation().getY());
         System.out.println(this.canvas1.getX());
@@ -761,7 +761,13 @@ public class Main extends javax.swing.JFrame {
         // Boton Generar en dialogo de dijkstra
         String nombre1 = this.cb_dijkstra_1.getSelectedItem().toString();
         String nombre2 = this.cb_dijkstra_2.getSelectedItem().toString();
-
+        ArrayList<arista> caminos = galaxia.getDijkstra(nombre1, nombre2);
+        String Texto = "";
+        for (int i = 0; i < caminos.size(); i++) {
+            Texto += "["+caminos.get(i).getAnterior().getNombre()+"-"+caminos.get(i).getSiguiente().getNombre()+"]\n";
+        }
+        JOptionPane.showMessageDialog(this, Texto);
+        this.jd_dijkstra.setVisible(false);
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -788,9 +794,11 @@ public class Main extends javax.swing.JFrame {
                 this.jd_WARP.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(this, "Algun dato esta incorrecto, intente denuevo");
+                this.jd_WARP.setVisible(false);
             }
         } else {
             JOptionPane.showMessageDialog(this, "Solo se puede usar WARP 2 veces no se vago.");
+            this.jd_WARP.setVisible(false);
         }
     }//GEN-LAST:event_jButton12MouseClicked
 
