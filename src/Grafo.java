@@ -85,4 +85,9 @@ public class Grafo {
         return false;
     }
     /////camino mas corto Dijkstra
+    public void getDijkstra(String nombre1, String nombre2){
+        vertice origen = new vertice(nombre1);
+        vertice destino = new vertice(nombre2);
+        
+    }
 }

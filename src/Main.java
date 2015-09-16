@@ -64,6 +64,7 @@ public class Main extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jpm_galaxia = new javax.swing.JPopupMenu();
         CrearPlaneta = new javax.swing.JMenuItem();
         CrearConexion = new javax.swing.JMenuItem();
@@ -101,6 +102,12 @@ public class Main extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         cb_dijkstra_2 = new javax.swing.JComboBox();
         jButton10 = new javax.swing.JButton();
+        jd_WARP = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        cb_WARP_1 = new javax.swing.JComboBox();
+        jLabel26 = new javax.swing.JLabel();
+        cb_WARP_2 = new javax.swing.JComboBox();
+        jButton12 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         jButton2.setText("Salir");
@@ -215,12 +222,21 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton11.setText("WARP");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_galaxiaLayout = new javax.swing.GroupLayout(jd_galaxia.getContentPane());
         jd_galaxia.getContentPane().setLayout(jd_galaxiaLayout);
         jd_galaxiaLayout.setHorizontalGroup(
             jd_galaxiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_galaxiaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
@@ -242,7 +258,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton7)
-                    .addComponent(jButton9)))
+                    .addComponent(jButton9)
+                    .addComponent(jButton11)))
         );
 
         CrearPlaneta.setText("Crear Planeta");
@@ -435,6 +452,11 @@ public class Main extends javax.swing.JFrame {
         jLabel24.setText("Planeta B:");
 
         jButton10.setText("Generar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_dijkstraLayout = new javax.swing.GroupLayout(jd_dijkstra.getContentPane());
         jd_dijkstra.getContentPane().setLayout(jd_dijkstraLayout);
@@ -467,6 +489,44 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(cb_dijkstra_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(jButton10)
+                .addContainerGap())
+        );
+
+        jLabel25.setText("Planeta A:");
+
+        jLabel26.setText("Planeta B:");
+
+        jButton12.setText("WARP!!!");
+
+        javax.swing.GroupLayout jd_WARPLayout = new javax.swing.GroupLayout(jd_WARP.getContentPane());
+        jd_WARP.getContentPane().setLayout(jd_WARPLayout);
+        jd_WARPLayout.setHorizontalGroup(
+            jd_WARPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_WARPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_WARPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton12)
+                    .addGroup(jd_WARPLayout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_WARP_1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel26)))
+                .addGap(18, 18, 18)
+                .addComponent(cb_WARP_2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_WARPLayout.setVerticalGroup(
+            jd_WARPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_WARPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_WARPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(cb_WARP_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26)
+                    .addComponent(cb_WARP_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(jButton12)
                 .addContainerGap())
         );
 
@@ -626,6 +686,26 @@ public class Main extends javax.swing.JFrame {
         this.jd_dijkstra.setVisible(true);
     }//GEN-LAST:event_jButton9MouseClicked
 
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // Boton Generar en dialogo de dijkstra
+        String nombre1 = this.cb_dijkstra_1.getSelectedItem().toString();
+        String nombre2 = this.cb_dijkstra_2.getSelectedItem().toString();
+        
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // boton WARP desde dialogo de galaxia
+        ArrayList nombres = galaxia.getNombres();
+        for (int i = 0; i < nombres.size(); i++) {
+            this.cb_WARP_1.addItem(nombres.get(i).toString());
+            this.cb_WARP_2.addItem(nombres.get(i).toString());
+        }
+        this.jd_WARP.pack();
+        this.jd_WARP.setModal(true);
+        this.jd_WARP.setLocationRelativeTo(this);
+        this.jd_WARP.setVisible(true);
+    }//GEN-LAST:event_jButton11MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -665,6 +745,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem CrearConexion;
     private javax.swing.JMenuItem CrearPlaneta;
     private javax.swing.JMenuItem Hola;
+    private javax.swing.JComboBox cb_WARP_1;
+    private javax.swing.JComboBox cb_WARP_2;
     private javax.swing.JComboBox cb_dijkstra_1;
     private javax.swing.JComboBox cb_dijkstra_2;
     private javax.swing.JComboBox cb_eliminar_vertice1;
@@ -676,6 +758,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox cb_planetas_existentes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -701,6 +785,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -709,6 +795,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JDialog jd_WARP;
     private javax.swing.JDialog jd_crear_planeta;
     private javax.swing.JDialog jd_dijkstra;
     private javax.swing.JDialog jd_eliminar_arista;

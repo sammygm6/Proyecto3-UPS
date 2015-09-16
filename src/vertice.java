@@ -10,12 +10,14 @@
  */
 public class vertice {
     private String nombre;
+    private boolean visitado;
 
     public vertice() {
     }
 
     public vertice(String nombre) {
         this.nombre = nombre;
+        this.visitado = false;
     }
 
     public String getNombre() {
@@ -26,6 +28,14 @@ public class vertice {
         this.nombre = nombre;
     }
 
+    public boolean isVisitado() {
+        return visitado;
+    }
+
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
+    }
+    
     @Override
     public String toString() {
         return nombre;
